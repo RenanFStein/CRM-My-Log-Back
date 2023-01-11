@@ -273,3 +273,8 @@ C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\MyLog.pdb
 C:\Users\renan\Desktop\MyLog\Back\mylog\obj\Debug\net6.0\ref\MyLog.dll
 C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\System.Web.Cors.dll
+C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\System.Web.Http.Cors.dll
+C:\Users\renan\Desktop\MyLog\Back\mylog\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

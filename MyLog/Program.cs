@@ -2,7 +2,21 @@ using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using MyLog.Data;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins(
+                            "http://localhost:5173"
+                            )
+                                .AllowAnyHeader()
+                                .AllowAnyMethod(); ;
+                      });
+});
 
 builder.Services.AddControllers().AddJsonOptions(x =>
 {
@@ -16,8 +30,6 @@ builder.Services.AddDbContext<LogContext>(options =>
 
 // Configuração do MAPPER    
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-// Configuração do Service/Classes
 
 
 builder.Services.AddControllers();
@@ -36,6 +48,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
 
 app.MapControllers();

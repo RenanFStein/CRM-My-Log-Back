@@ -8,10 +8,11 @@ public class Frete
     [Key]
     [Required]
     public long Id {get; set;}
-    
+
     [JsonIgnore]
     public virtual Veiculo Veiculo { get; set; }
     [Required(ErrorMessage = "O campo de {0} é obrigatório")]
+    
     public long VeiculoId { get; set; }
 
     [Required(ErrorMessage = "O Valor do Frete é obrigatório")]
@@ -29,7 +30,7 @@ public class Frete
     public EnumStatusFrete StatusFrete { get; set; } 
 
     [Required(ErrorMessage = "A data é obrigatório")]
-    public DateTime Data { get; set; }
+    public DateTime Data { get; set; } 
 
 }
  

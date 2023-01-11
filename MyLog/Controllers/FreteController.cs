@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MyLog.Data;
+using MyLog.Data.Dtos;
 using MyLog.Models;
 
 namespace MyLog.Controllers;
-
 [ApiController]
 [Route("[controller]")]
 public class FreteController : ControllerBase
@@ -20,8 +21,8 @@ public class FreteController : ControllerBase
 
     [HttpPost]
     public IActionResult Adicionafrete([FromBody] Frete frete)
-    {
-        //frete frete = _mapper.Map<frete>(freteDto);
+    {        //frete frete = _mapper.Map<frete>(freteDto);
+
         _context.Fretes.Add(frete);       
         _context.SaveChanges();     
         return CreatedAtAction(nameof(RecuperafreteporId), new { id = frete.Id }, frete);
@@ -40,6 +41,20 @@ public class FreteController : ControllerBase
         var frete = _context.Fretes.FirstOrDefault(frete => frete.Id == id);
         if (frete == null) return NotFound();
         return Ok(frete);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult AtualizafreteporId(int id, [FromBody] UpdateFreteDto freteDto)
+    {
+        Frete frete = _context.Fretes.FirstOrDefault(frete => frete.Id == id);
+        if (frete == null) {
+            return NotFound(); 
+        }        
+        _mapper.Map(freteDto, frete);
+        _context.SaveChanges();
+        return Ok(frete); 
+    
+        
     }
 
 }

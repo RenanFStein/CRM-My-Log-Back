@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MyLog.Data;
 using MyLog.Models;
-
+using System.Web.Http.Cors;
 namespace MyLog.Controllers;
 
 [ApiController]
@@ -17,7 +18,7 @@ public class VeiculoController : ControllerBase
         _context = context;
         _mapper = mapper;
     }
-
+    
     [HttpPost]
     public IActionResult AdicionaVeiculo([FromBody] Veiculo veiculo)
     {

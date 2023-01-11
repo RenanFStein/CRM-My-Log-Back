@@ -17,6 +17,7 @@ namespace MyLog.Data
                 .WithMany(veiculo => veiculo.Fretes)
                 .HasForeignKey(frete => frete.VeiculoId);
         }
+
         public DbSet<Frete> Fretes { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
     }
